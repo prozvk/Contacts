@@ -5,6 +5,7 @@
 //  Created by MacPro on 15.02.2022.
 //
 
+import Foundation
 import UIKit
 
 class MainTableViewController: UITableViewController, InputProtocol {
@@ -13,6 +14,8 @@ class MainTableViewController: UITableViewController, InputProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     //MARK: - DataSource
@@ -34,6 +37,11 @@ class MainTableViewController: UITableViewController, InputProtocol {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("segue")
+    }
 
+    
 }
 
