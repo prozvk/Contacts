@@ -8,31 +8,42 @@
 import Foundation
 import UIKit
 
-class MVPAssembly: NSObject {
+protocol AssemblyProtocol {
     
-    @IBOutlet weak var viewController: UIViewController!
+}
+
+class Assembly: NSObject {
+    
+    @IBOutlet weak var viewController: UITableViewController!
     
     // будет вызываться раньше всех остальных классов
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        createMainModule()
+    }
+    
+    func createMainModule() {
         guard let view = viewController as? MainTableViewController else { return }
 
         let presenter = MainPresenter()
         presenter.contactsArray = presenter.localRealm.objects(ContactModel.self)
 
         let model = ContactModel()
-        model.firstName = "Vladislav"
+        model.firstName = "Prozorov"
 
         RealmManager.shared.saveContactModel(model: model)
-
-//        let dataManager = DataManagerImaplementation()
 
         view.presenter = presenter
 
         presenter.view = view
+    }
+    
+    func createDetailModule(contact: ContactModel) {
         
-        
-//        presenter.dataManager = dataManager
+    }
+    
+    func segueTest() {
+        print("seguetest")
     }
 }
