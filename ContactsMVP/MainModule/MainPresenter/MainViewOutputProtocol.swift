@@ -11,6 +11,6 @@ import RealmSwift
 protocol OutputProtocol {
     
     var contactsArray: Results<ContactModel>! { get set }
-    
-    func getContactAt(_ row: Int) -> ContactModel
+        
+    func tapOnContact(contact: ContactModel, detailView: DetailTableViewController)
 }

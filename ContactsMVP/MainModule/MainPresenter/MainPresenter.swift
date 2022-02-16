@@ -9,14 +9,16 @@ import Foundation
 import RealmSwift
 
 class MainPresenter: OutputProtocol {
-    
+
+    var router: RouterProtocol?
     var view: InputProtocol?
     var model: RealmManager?
     
     var localRealm = try! Realm()
     var contactsArray: Results<ContactModel>!
     
-    func getContactAt(_ row: Int) -> ContactModel {
-        return contactsArray![row]
+    func tapOnContact(contact: ContactModel, detailView: DetailTableViewController) {
+        
+        router?.showDetail(contact: contact, detailView: detailView)
     }
 }
