@@ -9,4 +9,7 @@ import Foundation
 
 protocol DetailInput: class {
     
+    var presenter: DetailOutput! { get set }
+    
+    func setTitle(name: String)
 }

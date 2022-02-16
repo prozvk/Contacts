@@ -9,16 +9,18 @@ import Foundation
 import RealmSwift
 
 class MainPresenter: OutputProtocol {
-
-    var router: RouterProtocol?
-    var view: InputProtocol?
-    var model: RealmManager?
     
+    weak var view: InputProtocol?
+    var model: RealmManager?
+    var router: RouterProtocol?
     var localRealm = try! Realm()
     var contactsArray: Results<ContactModel>!
     
-    func tapOnContact(contact: ContactModel, detailView: DetailTableViewController) {
-        
+    func tapOnContact(contact: ContactModel, detailView: DetailInput) {
         router?.showDetail(contact: contact, detailView: detailView)
+    }
+    
+    func deleteContact(index: Int) {
+        RealmManager.shared.deleteContactModel(model: contactsArray[index])
     }
 }

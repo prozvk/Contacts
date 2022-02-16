@@ -11,5 +11,9 @@ protocol DetailOutput: class {
     
     init(view: DetailInput, contact: ContactModel?)
     
-    func getTextLabel(index: Int) -> String
+    func getTextLabel(type: String) -> String
+    
+    func getTitle()
+    
+    func deleteContact()
 }

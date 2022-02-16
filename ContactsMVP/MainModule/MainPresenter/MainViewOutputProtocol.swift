@@ -8,9 +8,11 @@
 import Foundation
 import RealmSwift
 
-protocol OutputProtocol {
+protocol OutputProtocol: class {
     
     var contactsArray: Results<ContactModel>! { get set }
         
-    func tapOnContact(contact: ContactModel, detailView: DetailTableViewController)
+    func tapOnContact(contact: ContactModel, detailView: DetailInput)
+    
+    func deleteContact(index: Int)
 }
