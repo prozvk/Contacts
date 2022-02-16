@@ -39,7 +39,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="bQu-Gw-CJy" id="3Xz-4o-fUw"/>
-                                    <segue destination="MUu-lp-lwb" kind="show" identifier="showDetail" id="YPy-7A-4M0"/>
+                                    <segue destination="MUu-lp-lwb" kind="show" identifier="showDetail" id="fxF-AZ-EO8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -59,7 +59,7 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="2066.666666666667" y="60.9375"/>
+            <point key="canvasLocation" x="2080" y="61"/>
         </scene>
         <!--Detail Table View Controller-->
         <scene sceneID="nWA-Cb-0OK">

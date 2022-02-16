@@ -19,7 +19,7 @@ class MainTableViewController: UITableViewController, InputProtocol {
     }
     
     //MARK: - DataSource
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.contactsArray.count
     }
@@ -32,16 +32,14 @@ class MainTableViewController: UITableViewController, InputProtocol {
         return cell
     }
     
-    //MARK: - Delegate
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
+    //MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("segue")
+        if segue.identifier == "showDetail" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let contact = presenter.contactsArray[indexPath.row]
+                presenter.tapOnContact(contact: contact, detailView: segue.destination as! DetailTableViewController)
+            }
+        }
     }
-
-    
 }
-
