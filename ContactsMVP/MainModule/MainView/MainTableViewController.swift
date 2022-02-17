@@ -39,7 +39,7 @@ class MainTableViewController: UITableViewController, InputProtocol {
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
-    //MARK: - Segue
+    //MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
@@ -47,6 +47,8 @@ class MainTableViewController: UITableViewController, InputProtocol {
                 let contact = presenter.contactsArray[indexPath.row]
                 presenter.tapOnContact(contact: contact, detailView: segue.destination as! DetailInput)
             }
+        } else if segue.identifier == "addContact" {
+            presenter.addContact(addView: segue.destination as! AddInputProtocol)
         }
     }
 }

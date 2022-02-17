@@ -50,7 +50,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Контакты" largeTitleDisplayMode="always" id="vmh-0w-IIJ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cLv-Pz-wS3"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cLv-Pz-wS3">
+                            <connections>
+                                <segue destination="W6w-J9-DR7" kind="show" identifier="addContact" id="c1b-Z4-lfR"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xt6-Zk-N4P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -67,8 +71,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5in-WC-It9" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7mR-Iz-DjZ">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="7mR-Iz-DjZ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -78,7 +82,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="51t-WR-50e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1157.9710144927537" y="60.9375"/>
+            <point key="canvasLocation" x="1312" y="61"/>
         </scene>
         <!--Detail Table View Controller-->
         <scene sceneID="bA1-Eh-iHD">
@@ -133,7 +137,82 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VVU-g6-oSs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2971" y="61"/>
+            <point key="canvasLocation" x="2858" y="424"/>
+        </scene>
+        <!--Новый контакт-->
+        <scene sceneID="7tz-y0-ukE">
+            <objects>
+                <tableViewController id="W6w-J9-DR7" customClass="AddTableViewController" customModule="ContactsMVP" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="rN4-dO-RHV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="addCell" rowHeight="65" id="iqX-0W-BJw" customClass="AddTableViewCell" customModule="ContactsMVP" customModuleProvider="target">
+                                <rect key="frame" x="20" y="55.5" width="374" height="65"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iqX-0W-BJw" id="82C-69-Xqz">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="65"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="QTe-ff-h7g">
+                                            <rect key="frame" x="10" y="0.0" width="354" height="65"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1b7-Qm-Ktb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="274" height="65"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES" textContentType="name"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="invalid addres" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5M-u0-S2a" userLabel="Invalid Label">
+                                                    <rect key="frame" x="274" y="0.0" width="80" height="65"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="gGL-Zt-Y7F"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="1b7-Qm-Ktb" firstAttribute="top" secondItem="QTe-ff-h7g" secondAttribute="top" id="0FS-8U-d4u"/>
+                                                <constraint firstAttribute="bottom" secondItem="1b7-Qm-Ktb" secondAttribute="bottom" id="3UZ-1s-TMs"/>
+                                                <constraint firstAttribute="bottom" secondItem="W5M-u0-S2a" secondAttribute="bottom" id="485-93-7DM"/>
+                                                <constraint firstAttribute="trailing" secondItem="W5M-u0-S2a" secondAttribute="trailing" id="8HC-56-IES"/>
+                                                <constraint firstItem="W5M-u0-S2a" firstAttribute="leading" secondItem="1b7-Qm-Ktb" secondAttribute="trailing" id="9Nb-Qj-CjK"/>
+                                                <constraint firstItem="1b7-Qm-Ktb" firstAttribute="leading" secondItem="QTe-ff-h7g" secondAttribute="leading" id="Awd-fN-pUY"/>
+                                                <constraint firstItem="W5M-u0-S2a" firstAttribute="top" secondItem="QTe-ff-h7g" secondAttribute="top" id="b4e-sa-d7z"/>
+                                                <constraint firstItem="W5M-u0-S2a" firstAttribute="leading" secondItem="1b7-Qm-Ktb" secondAttribute="trailing" id="pA4-nm-oEz"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="QTe-ff-h7g" secondAttribute="trailing" constant="10" id="2Gq-h4-W4h"/>
+                                        <constraint firstItem="QTe-ff-h7g" firstAttribute="leading" secondItem="82C-69-Xqz" secondAttribute="leading" constant="10" id="JFk-2B-kHw"/>
+                                        <constraint firstAttribute="bottom" secondItem="QTe-ff-h7g" secondAttribute="bottom" id="OAj-PH-rnq"/>
+                                        <constraint firstItem="QTe-ff-h7g" firstAttribute="top" secondItem="82C-69-Xqz" secondAttribute="top" id="ZhT-PP-IfM"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="invalidLabel" destination="W5M-u0-S2a" id="E0F-w7-HaQ"/>
+                                    <outlet property="textField" destination="1b7-Qm-Ktb" id="NaA-Qg-ulT"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="W6w-J9-DR7" id="YQS-Em-xEY"/>
+                            <outlet property="delegate" destination="W6w-J9-DR7" id="EyZ-hu-Pch"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Новый контакт" id="MC0-aN-wxT">
+                        <barButtonItem key="rightBarButtonItem" title="Готово" id="yXe-5U-TC5">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="W6w-J9-DR7" id="anp-96-m2M"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FuX-7H-yop" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2858" y="-269"/>
         </scene>
     </scenes>
     <resources>

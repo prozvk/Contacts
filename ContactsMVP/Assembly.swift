@@ -13,6 +13,8 @@ protocol AssemblyProtocol {
     func createMainModule()
     
     func createDetailModule(contact: ContactModel, detailView: DetailInput)
+    
+    func createAddModule(addView: AddInputProtocol)
 }
 
 class Assembly: NSObject, AssemblyProtocol {
@@ -40,15 +42,14 @@ class Assembly: NSObject, AssemblyProtocol {
         
         view.presenter = presenter
 
-        let model = ContactModel()
-        model.firstName = "Vladislav"
-        model.lastName = "Prozorov"
-        model.birthDate = "26.11.2003"
-        model.companyName = "65apps"
-        model.email = "prozvk@outlook.com"
-        
-
-        RealmManager.shared.saveContactModel(model: model)
+//        let model = ContactModel()
+//        model.firstName = "Vladislav"
+//        model.lastName = "Prozorov"
+//        model.birthDate = "26.11.2003"
+//        model.companyName = "65apps"
+//        model.email = "prozvk@outlook.com"
+//
+//        RealmManager.shared.saveContactModel(model: model)
     }
     
     func createDetailModule(contact: ContactModel, detailView: DetailInput) {
@@ -56,5 +57,12 @@ class Assembly: NSObject, AssemblyProtocol {
         let presenter = DetailPresenter(view: detailView, contact: contact)
                 
         detailView.presenter = presenter
+    }
+    
+    func createAddModule(addView: AddInputProtocol) {
+        
+        let presenter = AddPresenter(view: addView)
+        
+        addView.presenter = presenter
     }
 }

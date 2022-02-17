@@ -13,6 +13,8 @@ protocol RouterProtocol {
     var assembly: AssemblyProtocol? { get set }
     
     func showDetail(contact: ContactModel, detailView: DetailInput)
+    
+    func showAddView(addView: AddInputProtocol)
 }
 
 class Router: RouterProtocol {
@@ -26,5 +28,10 @@ class Router: RouterProtocol {
     func showDetail(contact: ContactModel, detailView: DetailInput) {
         
         assembly?.createDetailModule(contact: contact, detailView: detailView)
+    }
+    
+    func showAddView(addView: AddInputProtocol) {
+        
+        assembly?.createAddModule(addView: addView)
     }
 }

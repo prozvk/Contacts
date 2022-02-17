@@ -14,5 +14,7 @@ protocol OutputProtocol: class {
         
     func tapOnContact(contact: ContactModel, detailView: DetailInput)
     
+    func addContact(addView: AddInputProtocol)
+    
     func deleteContact(index: Int)
 }

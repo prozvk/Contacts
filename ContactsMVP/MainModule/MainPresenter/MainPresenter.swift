@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 class MainPresenter: OutputProtocol {
-    
+
     weak var view: InputProtocol?
     var model: RealmManager?
     var router: RouterProtocol?
@@ -18,6 +18,10 @@ class MainPresenter: OutputProtocol {
     
     func tapOnContact(contact: ContactModel, detailView: DetailInput) {
         router?.showDetail(contact: contact, detailView: detailView)
+    }
+    
+    func addContact(addView: AddInputProtocol) {
+        router?.showAddView(addView: addView)
     }
     
     func deleteContact(index: Int) {
