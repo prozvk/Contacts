@@ -36,6 +36,7 @@ class DetailPresenter: DetailOutput {
     }
     
     func deleteContact() {
+        //здесь нужно вызвать метод реалм менеджера так же через его обьект или нет и удалить модель
         
         RealmManager.shared.deleteContactModel(model: contact!)
     }

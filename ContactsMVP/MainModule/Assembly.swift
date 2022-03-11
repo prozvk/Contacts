@@ -19,6 +19,7 @@ class Assembly: NSObject, AssemblyProtocol {
     
     @IBOutlet weak var viewController: UITableViewController!
     
+    // будет вызываться раньше всех остальных классов
     override func awakeFromNib() {
         super.awakeFromNib()
         
